@@ -7,7 +7,11 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-mongoose.connect(process.env.MONGO_URI);
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  tls: true,
+});
 
 const contactSchema = new mongoose.Schema({
   name: String,
@@ -24,7 +28,7 @@ app.post("/submit", async (req, res) => {
   const { name, email } = req.body;
 
   const newContact = new Contact({
-    name,       
+    name,
     email,
   });
 
