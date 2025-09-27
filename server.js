@@ -7,9 +7,10 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-mongoose.connect(process.env.MONGO_URI, {
-  tls: true,
-});
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log("✅ MongoDB Connected"))
+  .catch((err) => console.error("❌ MongoDB Connection Error:", err));
 
 const contactSchema = new mongoose.Schema({
   name: String,
