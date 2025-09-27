@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
 app.post("/submit", async (req, res) => {
   const { name, email } = req.body;
 
-  const newContact = new Contact.insertOne({
+  const newContact = new Contact({
     name,
     email,
   });
