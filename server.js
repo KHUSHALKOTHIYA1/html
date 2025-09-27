@@ -24,7 +24,7 @@ app.post("/submit", async (req, res) => {
   const { name, email } = req.body;
 
   const newContact = new Contact({
-    name,
+    name,       
     email,
   });
 
