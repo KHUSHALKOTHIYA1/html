@@ -42,11 +42,12 @@ app.get("/login", (req, res) => {
 });
 
 app.post("/submit", async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, phonenumber, password } = req.body;
 
   const newContact = new Contact({
     name,
     email,
+    phonenumber,
     password,
   });
 
